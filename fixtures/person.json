@@ -1,0 +1,164 @@
+[
+{
+  "model": "core.person",
+  "pk": 2,
+  "fields": {
+    "first_name": "Лоренс",
+    "last_name": "Фишбёрн",
+    "photo": "film_participants/Лоренс_Фишбёрн.webp"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 3,
+  "fields": {
+    "first_name": "Дэвид Патрик",
+    "last_name": "Келли",
+    "photo": "film_participants/Дэвид_Патрик_Келли.webp"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 4,
+  "fields": {
+    "first_name": "Петер",
+    "last_name": "Стормаре",
+    "photo": "film_participants/Петер_Стормаре.webp"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 5,
+  "fields": {
+    "first_name": "Киану",
+    "last_name": "Ривз",
+    "photo": "film_participants/Киану_Ривз.webp"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 6,
+  "fields": {
+    "first_name": "Риккардо",
+    "last_name": "Скамарчо",
+    "photo": "film_participants/Риккардо_Скамарчо.webp"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 7,
+  "fields": {
+    "first_name": "Иэн",
+    "last_name": "МакШейн",
+    "photo": "film_participants/Иэн_МакШейн.webp"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 8,
+  "fields": {
+    "first_name": "Клаудия",
+    "last_name": "Джерини",
+    "photo": "film_participants/Клаудия_Джерини.webp"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 9,
+  "fields": {
+    "first_name": "Лэнс",
+    "last_name": "Реддик",
+    "photo": "film_participants/Лэнс_Реддик.webp"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 10,
+  "fields": {
+    "first_name": "Тобиаш",
+    "last_name": "Сигал",
+    "photo": ""
+  }
+},
+{
+  "model": "core.person",
+  "pk": 11,
+  "fields": {
+    "first_name": "Джон",
+    "last_name": "Легуизамо",
+    "photo": "film_participants/Джон_Легуизамо.webp"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 12,
+  "fields": {
+    "first_name": "Руби",
+    "last_name": "Роуз",
+    "photo": "film_participants/Руби_Роуз.webp"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 13,
+  "fields": {
+    "first_name": "Чад",
+    "last_name": "Стахелски",
+    "photo": "film_participants/Чад_Стахелски.webp"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 14,
+  "fields": {
+    "first_name": "Марк",
+    "last_name": "Дакаскос",
+    "photo": "film_participants/Марк_Дакаскос.webp"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 15,
+  "fields": {
+    "first_name": "Саид",
+    "last_name": "Тагмауи",
+    "photo": "film_participants/Саид_Тагмауи.webp"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 16,
+  "fields": {
+    "first_name": "Сьюзэн",
+    "last_name": "Бломмаерт",
+    "photo": "film_participants/Сьюзэн_Бломмаерт.webp"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 17,
+  "fields": {
+    "first_name": "Холли",
+    "last_name": "Берри",
+    "photo": "film_participants/Холли_Берри.webp"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 18,
+  "fields": {
+    "first_name": "Азия Кейт",
+    "last_name": "Диллон",
+    "photo": "film_participants/Азия_Кейт_Диллон.webp"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 19,
+  "fields": {
+    "first_name": "Анжелика",
+    "last_name": "Хьюстон",
+    "photo": "film_participants/Анжелика_Хьюстон.webp"
+  }
+}
+]

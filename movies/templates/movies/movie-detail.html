@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block title %}
+КиноМир - {{ movie.title }}
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'movies/css/movie-detail.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="movie-detail">
+    <div class="movie-detail-poster">
+        <img src="{{ movie.poster.url }}" alt="Постер фильма {{ movie.title }}">
+        <div class="movie-detail-poster-info">
+            <h1>{{ movie.title }}</h1>
+            <p>{{ movie.year }} | {{ movie.get_duration }} | {{ movie.country }} | {{ movie.age_limit }}+</p>
+        </div>
+    </div>
+
+    <div class="movie-detail-description">
+        <h2>Описание</h2>
+        <p>{{ movie.description }}</p>
+    </div>
+
+    <div class="movie-detail-participants">
+        <h2>Актёры и съёмочная группа</h2>
+
+        <div class="movie-detail-participant">
+            {% for participant in film_participants %}
+            <div class="movie-detail-participant-inner">
+                {% if participant.person.photo %}
+                <div class="movie-detail-person-photo-container">
+                    <img src="{{ participant.person.photo.url }}" alt="Фото {{ participant.person.first_name }} {{ participant.person.last_name }}">
+                </div>
+                
+                {% else %}
+                <div class="movie-detail-person-photo-container">
+                    <img src="{% static 'img/anonim-photo.png' %}" alt="Актер без фото">
+                </div>
+                {% endif %}
+                <div class="movie-detail-person-info">
+                    <h3>{{ participant.person.first_name }} {{ participant.person.last_name }}</h3>
+                    <p>{{ participant.get_role_display }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>  
+    </div>
+
+    <div class="movie-detail-detail">
+        <h2>Детали</h2>
+        <p>Жанры: 
+            
+            {% for genre in movie.genres.all %}
+                <span class="movie-detail-genre">{{ genre.title }}</span>{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+            
+        </p>
+    </div>
+</section>
+{% endblock %}

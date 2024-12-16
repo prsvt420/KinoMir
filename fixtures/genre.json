@@ -1,0 +1,26 @@
+[
+{
+  "model": "movies.genre",
+  "pk": 1,
+  "fields": {
+    "title": "Криминал",
+    "slug": "kriminal"
+  }
+},
+{
+  "model": "movies.genre",
+  "pk": 2,
+  "fields": {
+    "title": "Триллер",
+    "slug": "triller"
+  }
+},
+{
+  "model": "movies.genre",
+  "pk": 3,
+  "fields": {
+    "title": "Боевик",
+    "slug": "boevik"
+  }
+}
+]

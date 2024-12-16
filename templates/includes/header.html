@@ -1,0 +1,10 @@
+<header>
+        <h1 onclick="location.href='{% url 'movies:movies-list' %}'">КиноМир</h1>
+        <nav>
+            <a href="{% url 'movies:movies-list' %}">Фильмы</a>
+            <a href="#">Сериалы</a>
+        </nav>
+        <div>
+            <input id="search" type="text" placeholder="Поиск">
+        </div>
+</header>

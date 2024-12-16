@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    КиноМир - Фильмы
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'movies/css/movies-list.css' %}">
+{% endblock %}
+
+{% block content %}
+        <section class="movies-list">
+            {% for movie in movies %}
+            <article class="movie" onclick="location.href='{{ movie.get_absolute_url }}'">
+                <img src="{{ movie.poster.url }}" alt="{{ movie.title }}">
+                <p>{{ movie.title }}</p>
+            </article>
+            {% endfor %}
+        </section>
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'movies/js/search.js' %}"></script>
+{% endblock %}

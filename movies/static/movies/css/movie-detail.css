@@ -1,0 +1,129 @@
+.movie-detail {
+    margin-top: 10px;
+    width: var(--base-width);
+    color: var(--base-font-color);
+    margin-bottom: 50px;
+}
+
+.movie-detail-poster {
+    display: flex;
+    align-items: center;
+}
+
+.movie-detail-poster img {
+    border-radius: var(--border-radius);
+    width: 300px;
+    height: 450px;
+}
+
+.movie-detail-poster-info {
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.movie-detail-poster-info h1 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.movie-detail-description,
+.movie-detail-participants,
+.movie-detail-detail {
+    margin-top: 50px;
+}
+
+.movie-detail-description h2,
+.movie-detail-participants h2,
+.movie-detail-detail h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.movie-detail-description p,
+.movie-detail-participants p,
+.movie-detail-detail p {
+    font-size: 1.1rem;
+    color: var(--third-color);
+}
+
+.movie-detail-person-info h3,
+.movie-detail-person-info p {
+    text-align: center;
+}
+
+
+.movie-detail-participant {
+    display: grid;
+    row-gap: 20px;
+    grid-template-columns: repeat(6, minmax(100px, 1fr));
+}
+
+.movie-detail-participant img {
+    width: 80px;
+}
+
+.movie-detail-participant-inner {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.movie-detail-person-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.movie-detail-person-photo-container {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.movie-detail-person-photo-container img {
+    width: auto;
+    height: 100%;
+    object-fit: cover;
+}
+
+.movie-detail-genre {
+    color: var(--third-color);
+    font-weight: bold;
+}
+
+@media screen and (max-width: 1000px) {
+    .movie-detail-participant {
+        grid-template-columns: repeat(5, minmax(100px, 1fr));
+    }
+}
+
+@media screen and (max-width: 880px) {
+    .movie-detail-participant {
+        grid-template-columns: repeat(4, minmax(100px, 1fr));
+    }
+    
+}
+
+
+@media screen and (max-width: 750px) {
+    .movie-detail-poster {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .movie-detail-poster-info {
+        margin-left: 0;
+    }
+
+    .movie-detail-participant {
+        grid-template-columns: repeat(2, minmax(100px, 1fr));
+    }
+}

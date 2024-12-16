@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="icon" href="{% static 'img/favicon.ico' %}">
+    {% block css %}{% endblock %}
+</head>
+<body>
+    <div id="root">
+        {% include 'includes/header.html' %}
+            {% block content %}{% endblock %}
+        {% include 'includes/footer.html' %}
+    </div>
+    <script src="{% static 'js/jquery-3.7.1.min.js' %}"></script>
+    {% block js %}{% endblock %}
+    
+</body>
+</html>
