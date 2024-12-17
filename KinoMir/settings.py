@@ -10,6 +10,7 @@ DEBUG: bool = os.getenv('DEBUG') == 'True'
 
 ALLOWED_HOSTS: list[str] = [
     '127.0.0.1',
+    '192.168.0.103',
 ]
 
 INTERNAL_IPS: list[str] = [
@@ -64,11 +65,12 @@ WSGI_APPLICATION: str = 'KinoMir.wsgi.application'
 DATABASES: Dict = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('DB_NAME'),
-        'USER': os.getenv('DB_USER'),
-        'PASSWORD': os.getenv('DB_USER_PASSWORD'),
-        'HOST': 'localhost',
-        'PORT': 5432,
+        'NAME': os.getenv('POSTGRES_DB'),
+        'USER': os.getenv('POSTGRES_USER'),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
+        'HOST': os.getenv('POSTGRES_HOST'),
+        # 'HOST': 'localhost',
+        'PORT': os.getenv('POSTGRES_PORT', default=5432),
     }
 }
 
@@ -96,8 +98,9 @@ USE_TZ: bool = True
 
 STATIC_URL: str = 'static/'
 STATICFILES_DIRS: List = [
-    BASE_DIR / 'static'
+    BASE_DIR / 'static',
 ]
+STATIC_ROOT: Path = BASE_DIR / 'staticfiles'
 
 MEDIA_URL: str = 'media/'
 MEDIA_ROOT: Path = BASE_DIR / 'media'

@@ -14,7 +14,6 @@ class Person(models.Model):
         verbose_name='Фото',
         null=True,
         blank=True,
-
     )
 
     class Meta:

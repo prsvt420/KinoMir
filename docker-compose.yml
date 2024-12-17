@@ -1,0 +1,49 @@
+name: kinomir
+
+volumes:
+  postgres_data:
+  static_files:
+  media_files:
+
+services:
+  database:
+    container_name: KinoMir-postgres
+    env_file:
+      - .env
+    image: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: always
+
+  backend:
+    container_name: KinoMir-backend
+    env_file:
+      - .env
+    build: .
+    volumes:
+      - static_files:/app/staticfiles
+      - media_files:/app/media
+    restart: always
+    expose:
+      - 8000
+    depends_on:
+      - database
+    command: sh -c "poetry run python manage.py makemigrations &&
+                    poetry run python manage.py migrate &&
+                    make loaddata &&
+                    poetry run python manage.py collectstatic --no-input &&
+                    poetry run gunicorn KinoMir.wsgi:application --bind 0.0.0.0:8000"
+
+
+  nginx:
+    container_name: KinoMir-nginx
+    build:
+      context: ./nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    volumes:
+      - static_files:/app/staticfiles
+      - media_files:/app/media
+    restart: always
