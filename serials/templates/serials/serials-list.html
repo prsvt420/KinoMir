@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    КиноМир - Сериалы
+{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'serials/css/serials-list.css' %}">
+{% endblock %}
+
+{% block content %}
+        <section class="serials-list">
+            {% for serial in serials %}
+            <article class="serial" onclick="location.href='{{ serial.get_absolute_url }}'">
+                <img src="{{ serial.poster.url }}" alt="{{ serial.title }}">
+                <p>{{ serial.title }}</p>
+            </article>
+            {% endfor %}
+        </section>
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'serials/js/search.js' %}"></script>
+{% endblock %}

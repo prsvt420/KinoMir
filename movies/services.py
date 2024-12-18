@@ -6,6 +6,7 @@ from movies.models import Movie, FilmParticipant
 
 
 class MovieService:
+    """Сервис для работы с фильмами"""
 
     @staticmethod
     def get_movies() -> QuerySet[Movie]:

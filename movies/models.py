@@ -3,8 +3,8 @@ from typing import Tuple
 from django.db import models
 from django.urls import reverse
 
-from movies.choices import RoleChoices
-from core.models import Person
+from core.choices import RoleChoices
+from core.models import Person, Tag, Genre
 
 
 class Movie(models.Model):
@@ -22,13 +22,12 @@ class Movie(models.Model):
     country: models.CharField = models.CharField(max_length=255, verbose_name='Страна')
     age_limit: models.PositiveIntegerField = models.PositiveIntegerField(verbose_name='Возрастное ограничение')
     genres: models.ManyToManyField = models.ManyToManyField(
-        'Genre',
+        Genre,
         verbose_name='Жанр',
     )
     tags: models.ManyToManyField = models.ManyToManyField(
-        'Tag',
+        Tag,
         verbose_name='Тег',
-        related_name='tags',
         blank=True,
     )
     slug: models.SlugField = models.SlugField(max_length=255, verbose_name='URL', unique=True)
@@ -80,48 +79,3 @@ class FilmParticipant(models.Model):
         verbose_name_plural: str = 'Члены фильма'
         ordering: Tuple[str] = ('id',)
         unique_together: Tuple[str] = ('movie', 'person')
-
-
-class Genre(models.Model):
-    """Модель жанра"""
-
-    title: models.CharField = models.CharField(max_length=255, verbose_name='Название')
-    slug: models.SlugField = models.SlugField(max_length=255, verbose_name='URL', unique=True)
-
-    class Meta:
-        db_table: str = 'genres'
-        db_table_comment: str = 'Таблица содержит список жанров'
-        verbose_name: str = 'Жанр'
-        verbose_name_plural: str = 'Жанры'
-        ordering: Tuple[str] = ('id',)
-
-    def __str__(self) -> str:
-        """
-        Метод возвращает название жанра
-
-        Returns:
-            str: Название жанра
-        """
-        return str(self.title)
-
-
-class Tag(models.Model):
-    """Модель тега"""
-
-    title: models.CharField = models.CharField(max_length=255, verbose_name='Название')
-
-    class Meta:
-        db_table: str = 'tags'
-        db_table_comment: str = 'Таблица содержит список тегов'
-        verbose_name: str = 'Тег'
-        verbose_name_plural: str = 'Теги'
-        ordering: Tuple[str] = ('id',)
-
-    def __str__(self) -> str:
-        """
-        Метод возвращает название тега
-
-        Returns:
-            str: Название тега
-        """
-        return str(self.title)

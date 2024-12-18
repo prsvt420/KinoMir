@@ -1,0 +1,20 @@
+[
+{
+  "model": "serials.serialparticipant",
+  "pk": 1,
+  "fields": {
+    "serial": 1,
+    "person": 55,
+    "role": "director"
+  }
+},
+{
+  "model": "serials.serialparticipant",
+  "pk": 2,
+  "fields": {
+    "serial": 1,
+    "person": 56,
+    "role": "director"
+  }
+}
+]

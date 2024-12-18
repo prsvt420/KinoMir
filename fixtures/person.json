@@ -160,5 +160,338 @@
     "last_name": "Хьюстон",
     "photo": "film_participants/Анжелика_Хьюстон.webp"
   }
+},
+{
+  "model": "core.person",
+  "pk": 20,
+  "fields": {
+    "first_name": "Леонардо",
+    "last_name": "ДиКаприо",
+    "photo": "film_participants/Леонардо_ДиКаприо.webp"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 21,
+  "fields": {
+    "first_name": "Джона",
+    "last_name": "Хилл",
+    "photo": "film_participants/Джона_Хилл.webp"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 22,
+  "fields": {
+    "first_name": "Марго",
+    "last_name": "Робби",
+    "photo": "film_participants/Марго_Робби.webp"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 23,
+  "fields": {
+    "first_name": "Кайл",
+    "last_name": "Чандлер",
+    "photo": "film_participants/Кайл_Чандлер.webp"
+  }
+},
+{
+  "model": "core.person",
+  "pk": 24,
+  "fields": {
+    "first_name": "Роб",
+    "last_name": "Райнер",
+    "photo": ""
+  }
+},
+{
+  "model": "core.person",
+  "pk": 25,
+  "fields": {
+    "first_name": "П.Дж.",
+    "last_name": "Бирн",
+    "photo": ""
+  }
+},
+{
+  "model": "core.person",
+  "pk": 26,
+  "fields": {
+    "first_name": "Джон",
+    "last_name": "Бернтал",
+    "photo": ""
+  }
+},
+{
+  "model": "core.person",
+  "pk": 27,
+  "fields": {
+    "first_name": "Кристин",
+    "last_name": "Милиоти",
+    "photo": ""
+  }
+},
+{
+  "model": "core.person",
+  "pk": 28,
+  "fields": {
+    "first_name": "Жан",
+    "last_name": "Дюжарден",
+    "photo": ""
+  }
+},
+{
+  "model": "core.person",
+  "pk": 29,
+  "fields": {
+    "first_name": "Кристин",
+    "last_name": "Милиоти",
+    "photo": ""
+  }
+},
+{
+  "model": "core.person",
+  "pk": 30,
+  "fields": {
+    "first_name": "Жан",
+    "last_name": "Дюжарден",
+    "photo": ""
+  }
+},
+{
+  "model": "core.person",
+  "pk": 31,
+  "fields": {
+    "first_name": "Мэттью",
+    "last_name": "МакКонахи",
+    "photo": ""
+  }
+},
+{
+  "model": "core.person",
+  "pk": 32,
+  "fields": {
+    "first_name": "Мартин",
+    "last_name": "Скорсезе",
+    "photo": ""
+  }
+},
+{
+  "model": "core.person",
+  "pk": 33,
+  "fields": {
+    "first_name": "Семён",
+    "last_name": "Трескунов",
+    "photo": ""
+  }
+},
+{
+  "model": "core.person",
+  "pk": 34,
+  "fields": {
+    "first_name": "Ян",
+    "last_name": "Цапник",
+    "photo": ""
+  }
+},
+{
+  "model": "core.person",
+  "pk": 35,
+  "fields": {
+    "first_name": "Анна",
+    "last_name": "Антоновна",
+    "photo": ""
+  }
+},
+{
+  "model": "core.person",
+  "pk": 36,
+  "fields": {
+    "first_name": "Игорь",
+    "last_name": "Угольников",
+    "photo": ""
+  }
+},
+{
+  "model": "core.person",
+  "pk": 37,
+  "fields": {
+    "first_name": "Фёдор",
+    "last_name": "Бондарчук",
+    "photo": ""
+  }
+},
+{
+  "model": "core.person",
+  "pk": 38,
+  "fields": {
+    "first_name": "Софья",
+    "last_name": "Райзман",
+    "photo": ""
+  }
+},
+{
+  "model": "core.person",
+  "pk": 39,
+  "fields": {
+    "first_name": "Ани",
+    "last_name": "Петросян",
+    "photo": ""
+  }
+},
+{
+  "model": "core.person",
+  "pk": 40,
+  "fields": {
+    "first_name": "Алексей",
+    "last_name": "Лукин",
+    "photo": ""
+  }
+},
+{
+  "model": "core.person",
+  "pk": 41,
+  "fields": {
+    "first_name": "Ольга",
+    "last_name": "Кузьмина",
+    "photo": ""
+  }
+},
+{
+  "model": "core.person",
+  "pk": 42,
+  "fields": {
+    "first_name": "Ксения",
+    "last_name": "Лаврова",
+    "photo": ""
+  }
+},
+{
+  "model": "core.person",
+  "pk": 43,
+  "fields": {
+    "first_name": "Александр",
+    "last_name": "Войтинский",
+    "photo": ""
+  }
+},
+{
+  "model": "core.person",
+  "pk": 44,
+  "fields": {
+    "first_name": "Тони",
+    "last_name": "Голдуин",
+    "photo": ""
+  }
+},
+{
+  "model": "core.person",
+  "pk": 45,
+  "fields": {
+    "first_name": "Мэгги",
+    "last_name": "Кью",
+    "photo": ""
+  }
+},
+{
+  "model": "core.person",
+  "pk": 46,
+  "fields": {
+    "first_name": "Кейт",
+    "last_name": "Уинселт",
+    "photo": ""
+  }
+},
+{
+  "model": "core.person",
+  "pk": 47,
+  "fields": {
+    "first_name": "Шейлин",
+    "last_name": "Вудли",
+    "photo": ""
+  }
+},
+{
+  "model": "core.person",
+  "pk": 48,
+  "fields": {
+    "first_name": "Тео",
+    "last_name": "Джеймс",
+    "photo": ""
+  }
+},
+{
+  "model": "core.person",
+  "pk": 49,
+  "fields": {
+    "first_name": "Джэй",
+    "last_name": "Кортни",
+    "photo": ""
+  }
+},
+{
+  "model": "core.person",
+  "pk": 50,
+  "fields": {
+    "first_name": "Зои",
+    "last_name": "Кравиц",
+    "photo": ""
+  }
+},
+{
+  "model": "core.person",
+  "pk": 51,
+  "fields": {
+    "first_name": "Майзл",
+    "last_name": "Теплер",
+    "photo": ""
+  }
+},
+{
+  "model": "core.person",
+  "pk": 52,
+  "fields": {
+    "first_name": "Рэй",
+    "last_name": "Стивенс",
+    "photo": ""
+  }
+},
+{
+  "model": "core.person",
+  "pk": 53,
+  "fields": {
+    "first_name": "Эшли",
+    "last_name": "Джадд",
+    "photo": ""
+  }
+},
+{
+  "model": "core.person",
+  "pk": 54,
+  "fields": {
+    "first_name": "Нил",
+    "last_name": "Бергер",
+    "photo": ""
+  }
+},
+{
+  "model": "core.person",
+  "pk": 55,
+  "fields": {
+    "first_name": "Максим",
+    "last_name": "Фадеев",
+    "photo": ""
+  }
+},
+{
+  "model": "core.person",
+  "pk": 56,
+  "fields": {
+    "first_name": "Сергей",
+    "last_name": "Белоус",
+    "photo": "film_participants/Сергей_Белоус.webp"
+  }
 }
 ]

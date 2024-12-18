@@ -27,6 +27,7 @@ INSTALLED_APPS: List[str] = [
     'debug_toolbar',
     'core',
     'movies',
+    'serials',
 ]
 
 MIDDLEWARE: List[str] = [
@@ -68,8 +69,7 @@ DATABASES: Dict = {
         'NAME': os.getenv('POSTGRES_DB'),
         'USER': os.getenv('POSTGRES_USER'),
         'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
-        'HOST': os.getenv('POSTGRES_HOST'),
-        # 'HOST': 'localhost',
+        'HOST': 'localhost' if DEBUG else os.getenv('POSTGRES_HOST'),
         'PORT': os.getenv('POSTGRES_PORT', default=5432),
     }
 }

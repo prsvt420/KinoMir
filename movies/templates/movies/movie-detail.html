@@ -25,6 +25,7 @@
         <p>{{ movie.description }}</p>
     </div>
 
+    {% if film_participants %}
     <div class="movie-detail-participants">
         <h2>Актёры и съёмочная группа</h2>
 
@@ -49,6 +50,7 @@
             {% endfor %}
         </div>  
     </div>
+    {% endif %}
 
     <div class="movie-detail-detail">
         <h2>Детали</h2>

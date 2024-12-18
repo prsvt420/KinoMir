@@ -2,7 +2,7 @@
         <h1 onclick="location.href='{% url 'movies:movies-list' %}'">КиноМир</h1>
         <nav>
             <a href="{% url 'movies:movies-list' %}">Фильмы</a>
-            <a href="#">Сериалы</a>
+            <a href="{% url 'serials:serials-list' %}">Сериалы</a>
         </nav>
         <div>
             <input id="search" type="text" placeholder="Поиск">

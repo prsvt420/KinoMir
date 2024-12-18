@@ -1,6 +1,6 @@
 [
 {
-  "model": "movies.genre",
+  "model": "core.genre",
   "pk": 1,
   "fields": {
     "title": "Криминал",
@@ -8,7 +8,7 @@
   }
 },
 {
-  "model": "movies.genre",
+  "model": "core.genre",
   "pk": 2,
   "fields": {
     "title": "Триллер",
@@ -16,11 +16,67 @@
   }
 },
 {
-  "model": "movies.genre",
+  "model": "core.genre",
   "pk": 3,
   "fields": {
     "title": "Боевик",
     "slug": "boevik"
+  }
+},
+{
+  "model": "core.genre",
+  "pk": 4,
+  "fields": {
+    "title": "Драма",
+    "slug": "drama"
+  }
+},
+{
+  "model": "core.genre",
+  "pk": 5,
+  "fields": {
+    "title": "Комедия",
+    "slug": "komediya"
+  }
+},
+{
+  "model": "core.genre",
+  "pk": 6,
+  "fields": {
+    "title": "Биография",
+    "slug": "biografiya"
+  }
+},
+{
+  "model": "core.genre",
+  "pk": 7,
+  "fields": {
+    "title": "Фантастика",
+    "slug": "fantastika"
+  }
+},
+{
+  "model": "core.genre",
+  "pk": 8,
+  "fields": {
+    "title": "Приключения",
+    "slug": "priklyucheniya"
+  }
+},
+{
+  "model": "core.genre",
+  "pk": 9,
+  "fields": {
+    "title": "Семейное",
+    "slug": "semejnoe"
+  }
+},
+{
+  "model": "core.genre",
+  "pk": 10,
+  "fields": {
+    "title": "Документальный",
+    "slug": "dokumentalnyj"
   }
 }
 ]

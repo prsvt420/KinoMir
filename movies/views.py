@@ -6,7 +6,7 @@ from django.views.generic import ListView, DetailView
 
 from movies.models import Movie
 from movies.services import MovieService
-from movies.utils import request_is_ajax
+from core.utils import request_is_ajax
 
 
 class MoviesListView(ListView):
@@ -28,6 +28,7 @@ class MoviesListView(ListView):
 
         if search_query:
             return MovieService().get_movies_by_search_query(search_query)
+
         return MovieService().get_movies()
 
     def get(self, request: HttpRequest, *args, **kwargs) -> JsonResponse | HttpResponse:
@@ -52,6 +53,6 @@ class MovieDetailView(DetailView):
     def get_context_data(self, **kwargs) -> Dict:
         """Возвращает словарь с данными для шаблона"""
 
-        context = super().get_context_data(**kwargs)
+        context: Dict = super().get_context_data(**kwargs)
         context['film_participants'] = MovieService().get_film_participants(self.object)
         return context

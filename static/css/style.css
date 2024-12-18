@@ -120,6 +120,9 @@ footer {
     }
 }
 
+.active {
+    color: var(--fourth-color)
+}
 
 
 @media screen and (max-width: 1240px) {

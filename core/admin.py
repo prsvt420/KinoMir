@@ -1,12 +1,14 @@
-from typing import Tuple
+from typing import Tuple, Dict
 
 from django.contrib import admin
 
-from core.models import Person
+from core.models import Person, Tag, Genre
 
 
 @admin.register(Person)
-class FilmParticipantAdmin(admin.ModelAdmin):
+class PersonAdmin(admin.ModelAdmin):
+    """Админка персон"""
+
     fields: Tuple[str] = (
         ('first_name', 'last_name'),
         'photo'
@@ -23,3 +25,19 @@ class FilmParticipantAdmin(admin.ModelAdmin):
     )
 
     list_per_page: int = 50
+
+
+@admin.register(Tag)
+class TagAdmin(admin.ModelAdmin):
+    """Админка тегов"""
+
+    list_display: Tuple[str] = ('title',)
+    list_per_page: int = 50
+
+
+@admin.register(Genre)
+class GenreAdmin(admin.ModelAdmin):
+    """Админка жанров"""
+
+    list_display: Tuple[str] = ('title', 'slug')
+    prepopulated_fields: Dict = {"slug": ("title",)}
