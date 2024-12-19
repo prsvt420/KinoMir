@@ -24,10 +24,13 @@ class SerialsListView(ListView):
             QuerySet[Serial]: Список сериалов
         """
 
-        search_query: Optional[str] = self.request.GET.get('q')
+        search_query: Optional[str] = self.request.GET.get('q', '').strip()
 
         if search_query:
-            return SerialService().get_serials_by_search_query(search_query)
+            serials: QuerySet[Serial] = SerialService().get_serials_by_search_query(search_query)
+
+            if serials.exists():
+                return serials
 
         return SerialService().get_serials()
 

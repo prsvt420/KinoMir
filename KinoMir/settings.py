@@ -110,3 +110,12 @@ FIXTURE_DIRS: List = [
 ]
 
 DEFAULT_AUTO_FIELD: str = 'django.db.models.BigAutoField'
+
+
+EMAIL_HOST: str = 'smtp.gmail.com'
+EMAIL_PORT: int = 587
+EMAIL_USE_SSL: bool = True
+EMAIL_HOST_USER: Optional[str] = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD: Optional[str] = os.getenv('EMAIL_HOST_PASSWORD')
+
+SITE_NAME: str = 'КиноМир'

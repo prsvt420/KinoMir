@@ -8,6 +8,7 @@ from django.urls import path, include
 
 urlpatterns: List = [
     path('admin/', admin.site.urls),
+    path('', include('core.urls', namespace='core'), name='core'),
     path('movies/', include('movies.urls', namespace='movies'), name='movies'),
     path('serials/', include('serials.urls', namespace='serials'), name='serials'),
 ]

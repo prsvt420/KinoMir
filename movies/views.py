@@ -24,10 +24,13 @@ class MoviesListView(ListView):
             QuerySet[Movie]: Список фильмов
         """
 
-        search_query: Optional[str] = self.request.GET.get('q')
+        search_query: Optional[str] = self.request.GET.get('q', '').strip()
 
         if search_query:
-            return MovieService().get_movies_by_search_query(search_query)
+            movies: QuerySet[Movie] = MovieService().get_movies_by_search_query(search_query)
+
+            if movies.exists():
+                return movies
 
         return MovieService().get_movies()
 

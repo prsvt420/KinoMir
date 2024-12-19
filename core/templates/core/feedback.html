@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}КиноМир - Отправить обращение{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'core/css/feedback.css' %}">
+{% endblock %}
+
+{% block content %}
+<section class="feedback-container">
+    <form class="feedback" action="" method="post">
+        {% csrf_token %}
+        <div>
+            {% if form.topic.errors %}
+            <input type="text" name="topic" class="error" placeholder="{{ form.topic.errors.as_text }}">
+            {% else %}
+            <input type="text" value="{% if form.topic.value %}{{ form.topic.value }}{% endif %}" name="topic" placeholder="Тема обращения">
+            {% endif %}
+
+            {% if form.email.errors %}
+            <input type="text" name="email" class="error" placeholder="{{ form.email.errors.as_text }}">
+            {% else %}
+            <input type="text" name="email" value="{% if form.email.value %}{{ form.email.value }}{% endif %}" placeholder="Ваш E-mail">
+            {% endif %}
+        </div>
+        {% if form.text.errors %}
+        <textarea name="text" class="error" placeholder="{{ form.text.errors.as_text }}"></textarea>
+        {% else %}
+        <textarea name="text" placeholder="Текст обращения">{% if form.text.value %}{{ form.text.value }}{% endif %}</textarea>
+        {% endif %}
+        <input type="submit" class="button" value="Отправить">
+    </form>
+
+</section>
+
+{% block js %}
+    <script src="{% static 'core/js/feedback.js' %}"></script>
+{% endblock %}
+
+{% endblock %}
