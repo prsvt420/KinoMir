@@ -87,6 +87,25 @@ header {
     }
 }
 
+.container-404 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+    width: var(--base-width);
+    color: White;
+    line-height: 1.5;
+}
+
+.container-404 h1 {
+    font-size: 2rem;
+}
+
+.container-404 p {
+    font-size: 1.2rem;
+}
+
 footer {
     width: var(--base-width);
     height: 200px;
