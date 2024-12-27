@@ -59,6 +59,7 @@ class Tag(models.Model):
     """Модель тега"""
 
     title: models.CharField = models.CharField(max_length=255, verbose_name='Название')
+    slug: models.SlugField = models.SlugField(max_length=255, verbose_name='URL', unique=True)
 
     class Meta:
         db_table: str = 'tags'

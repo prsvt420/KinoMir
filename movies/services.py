@@ -1,7 +1,7 @@
 from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank
 from django.db.models import QuerySet
 
-from core.models import Person
+from core.models import Genre, Tag
 from movies.models import Movie, FilmParticipant
 
 
@@ -19,7 +19,7 @@ class MovieService:
 
         return Movie.objects.all().prefetch_related('genres').prefetch_related('tags')
 
-    def get_movies_by_search_query(self, search_query: str) -> QuerySet[Movie]:
+    def get_movies_by_search_query(self, q: str) -> QuerySet[Movie]:
         """
         Метод возвращает список фильмов по поисковому запросу
 
@@ -27,7 +27,7 @@ class MovieService:
             QuerySet[Movie]: Список фильмов по поисковому запросу
         """
         search_vector: SearchVector = SearchVector('title')
-        search_query: SearchQuery = SearchQuery(search_query)
+        search_query: SearchQuery = SearchQuery(q)
 
         return self.get_movies().annotate(
             search=search_vector,
@@ -35,12 +35,34 @@ class MovieService:
         ).filter(search=search_query).order_by('-rank')
 
     @staticmethod
-    def get_film_participants(movie: Movie) -> QuerySet[Person]:
+    def get_film_participants(movie: Movie) -> QuerySet[FilmParticipant]:
         """
         Метод возвращает список участников фильма
 
         Returns:
-            QuerySet[Person]: Список участников фильма
+            QuerySet[FilmParticipant]: Список участников фильма
         """
 
         return FilmParticipant.objects.filter(movie=movie).select_related('person')
+
+    @staticmethod
+    def get_genres(movie: Movie) -> QuerySet[Genre]:
+        """
+        Метод возвращает список жанров фильма
+
+        Returns:
+            QuerySet[Genre]: Список жанров фильма
+        """
+
+        return movie.genres.all()
+
+    @staticmethod
+    def get_tags(movie: Movie) -> QuerySet[Tag]:
+        """
+        Метод возвращает список тегов фильма
+
+        Returns:
+            QuerySet[Tag]: Список тегов фильма
+        """
+
+        return movie.tags.all()

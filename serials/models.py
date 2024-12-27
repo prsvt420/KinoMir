@@ -1,4 +1,4 @@
-from typing import Tuple
+from typing import Tuple, Optional
 
 from django.db import models
 from django.urls import reverse
@@ -55,12 +55,14 @@ class Serial(models.Model):
     def get_season_count(self) -> str:
         """Метод возвращает количество сезонов сериала"""
 
+        end_word: Optional[str] = None
+
         if str(self.season_count)[-1] == '1':
-            end_word: str = ''
+            end_word = ''
         elif str(self.season_count)[-1] in '234':
-            end_word: str = 'а'
+            end_word = 'а'
         else:
-            end_word: str = 'ов'
+            end_word = 'ов'
 
         return f'{self.season_count} сезон{end_word}'
 
@@ -85,5 +87,5 @@ class SerialParticipant(models.Model):
         db_table_comment: str = 'Таблица содержит список членов сериала'
         verbose_name: str = 'Член сериала'
         verbose_name_plural: str = 'Члены сериала'
-        ordering: Tuple[str] = ('id',)
-        unique_together: Tuple[str] = ('serial', 'person')
+        ordering: Tuple = ('id',)
+        unique_together: Tuple = ('serial', 'person')

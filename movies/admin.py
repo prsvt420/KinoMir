@@ -9,10 +9,10 @@ from movies.models import Movie, FilmParticipant
 class MovieAdmin(admin.ModelAdmin):
     """Админка фильмов"""
 
-    list_display: Tuple[str] = ('title', 'year', 'duration', 'country', 'age_limit')
-    list_filter: Tuple[str] = ('country', 'age_limit', 'year')
+    list_display: Tuple = ('title', 'year', 'duration', 'country', 'age_limit')
+    list_filter: Tuple = ('country', 'age_limit', 'year')
     list_per_page: int = 50
-    search_fields: Tuple[str] = ('title', 'description')
+    search_fields: Tuple = ('title', 'description')
     prepopulated_fields: Dict = {"slug": ("title",)}
 
 
@@ -20,5 +20,5 @@ class MovieAdmin(admin.ModelAdmin):
 class FilmParticipantAdmin(admin.ModelAdmin):
     """Админка участников фильма"""
 
-    list_display: Tuple[str] = ('movie', 'person', 'role')
+    list_display: Tuple = ('movie', 'person', 'role')
     list_per_page: int = 50

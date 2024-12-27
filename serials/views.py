@@ -1,4 +1,4 @@
-from typing import Optional, Dict, List
+from typing import Optional, Dict, List, Any
 
 from django.db.models import QuerySet
 from django.http import JsonResponse, HttpResponse, HttpRequest
@@ -13,7 +13,7 @@ class SerialsListView(ListView):
     """Представление списка сериалов"""
 
     template_name: str = 'serials/serials-list.html'
-    model: Serial = Serial
+    model: type[Any | None] = Serial
     context_object_name: str = 'serials'
 
     def get_queryset(self, *args, **kwargs) -> QuerySet[Serial]:
@@ -40,7 +40,7 @@ class SerialsListView(ListView):
         """
 
         if request_is_ajax(request):
-            serials_json: List[Serial] = list(self.get_queryset().values())
+            serials_json = list(self.get_queryset().values())
             return JsonResponse(serials_json, safe=False)
 
         return super().get(request, *args, **kwargs)
@@ -50,7 +50,7 @@ class SerialDetailView(DetailView):
     """Представление конкретного сериала"""
 
     template_name: str = 'serials/serial-detail.html'
-    model: Serial = Serial
+    model: type[Any] = Serial
     context_object_name: str = 'serial'
 
     def get_context_data(self, **kwargs) -> Dict:

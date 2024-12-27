@@ -9,17 +9,17 @@ from core.models import Person, Tag, Genre
 class PersonAdmin(admin.ModelAdmin):
     """Админка персон"""
 
-    fields: Tuple[str] = (
+    fields: Tuple = (
         ('first_name', 'last_name'),
         'photo'
     )
 
-    list_display: Tuple[str] = (
+    list_display: Tuple = (
         'first_name',
         'last_name',
     )
 
-    search_fields: Tuple[str] = (
+    search_fields: Tuple= (
         'first_name',
         'last_name',
     )
@@ -31,7 +31,7 @@ class PersonAdmin(admin.ModelAdmin):
 class TagAdmin(admin.ModelAdmin):
     """Админка тегов"""
 
-    list_display: Tuple[str] = ('title',)
+    list_display: Tuple = ('title',)
     list_per_page: int = 50
 
 
@@ -39,5 +39,5 @@ class TagAdmin(admin.ModelAdmin):
 class GenreAdmin(admin.ModelAdmin):
     """Админка жанров"""
 
-    list_display: Tuple[str] = ('title', 'slug')
+    list_display: Tuple = ('title', 'slug')
     prepopulated_fields: Dict = {"slug": ("title",)}

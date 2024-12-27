@@ -11,6 +11,7 @@ urlpatterns: List = [
     path('', include('core.urls', namespace='core'), name='core'),
     path('movies/', include('movies.urls', namespace='movies'), name='movies'),
     path('serials/', include('serials.urls', namespace='serials'), name='serials'),
+    path('api/', include('api.urls', namespace='api'), name='api'),
 ]
 
 if settings.DEBUG:

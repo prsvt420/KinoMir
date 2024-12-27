@@ -10,7 +10,6 @@ DEBUG: bool = os.getenv('DEBUG') == 'True'
 
 ALLOWED_HOSTS: list[str] = [
     '127.0.0.1',
-    '192.168.0.103',
 ]
 
 INTERNAL_IPS: list[str] = [
@@ -25,9 +24,12 @@ INSTALLED_APPS: List[str] = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'debug_toolbar',
+    'rest_framework',
+    'django_filters',
     'core',
     'movies',
     'serials',
+    'api',
 ]
 
 MIDDLEWARE: List[str] = [
@@ -119,3 +121,7 @@ EMAIL_HOST_USER: Optional[str] = os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD: Optional[str] = os.getenv('EMAIL_HOST_PASSWORD')
 
 SITE_NAME: str = 'КиноМир'
+
+REST_FRAMEWORK: Dict = {
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+}

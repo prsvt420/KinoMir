@@ -37,7 +37,7 @@ class Movie(models.Model):
         db_table_comment: str = 'Таблица содержит список фильмов'
         verbose_name: str = 'Фильм'
         verbose_name_plural: str = 'Фильмы'
-        ordering: Tuple[str] = ('id',)
+        ordering: Tuple = ('id',)
 
     def __str__(self) -> str:
         """
@@ -77,5 +77,5 @@ class FilmParticipant(models.Model):
         db_table_comment: str = 'Таблица содержит список членов фильма'
         verbose_name: str = 'Член фильма'
         verbose_name_plural: str = 'Члены фильма'
-        ordering: Tuple[str] = ('id',)
-        unique_together: Tuple[str] = ('movie', 'person')
+        ordering: Tuple = ('id',)
+        unique_together: Tuple = ('movie', 'person')
