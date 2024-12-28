@@ -13,3 +13,10 @@
 - Nginx
 - Docker / Docker Compose
 - Git / GitHub
+- Redis
+
+[//]: # (- Celery)
+
+[//]: # (- CI/CD)
+
+[//]: # (- GitLab)

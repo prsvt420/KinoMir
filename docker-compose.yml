@@ -15,6 +15,11 @@ services:
       - postgres_data:/var/lib/postgresql/data
     restart: always
 
+  redis:
+    container_name: KinoMir-redis
+    image: redis
+    restart: always
+
   backend:
     container_name: KinoMir-backend
     env_file:
@@ -28,6 +33,7 @@ services:
       - 8000
     depends_on:
       - database
+      - redis
     command: sh -c "poetry run python manage.py makemigrations &&
                     poetry run python manage.py migrate &&
                     make loaddata &&

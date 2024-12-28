@@ -1,0 +1,14 @@
+{% extends "rest_framework/base.html" %}
+
+{% load static %}
+
+{% block style %}
+    {{ block.super }}
+        <link rel="icon" href="{% static 'img/favicon.ico' %}">
+{% endblock %}
+
+{% block title %}КиноМир API{% endblock %}
+
+{% block branding %}
+<a class='navbar-brand' rel="nofollow" href='{% url "movies:movies-list" %}'>КиноМир</a>
+{% endblock %}
