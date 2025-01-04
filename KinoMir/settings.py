@@ -26,6 +26,7 @@ INSTALLED_APPS: List[str] = [
     'debug_toolbar',
     'rest_framework',
     'django_filters',
+    'drf_yasg',
     'core',
     'movies',
     'serials',
@@ -120,10 +121,9 @@ FIXTURE_DIRS: List = [
 
 DEFAULT_AUTO_FIELD: str = 'django.db.models.BigAutoField'
 
-
 EMAIL_HOST: str = 'smtp.gmail.com'
 EMAIL_PORT: int = 587
-EMAIL_USE_SSL: bool = True
+EMAIL_USE_TLS: bool = True
 EMAIL_HOST_USER: Optional[str] = os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD: Optional[str] = os.getenv('EMAIL_HOST_PASSWORD')
 
@@ -132,3 +132,7 @@ SITE_NAME: str = 'КиноМир'
 REST_FRAMEWORK: Dict = {
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
 }
+
+CELERY_BROKER_URL: str = 'redis://127.0.0.1:6379' if DEBUG else os.getenv('REDIS_LOCATION')
+CELERY_RESULT_BACKEND: str = 'redis://127.0.0.1:6379' if DEBUG else os.getenv('REDIS_LOCATION')
+CELERY_TIMEZONE: str = 'Europe/Moscow'

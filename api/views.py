@@ -16,7 +16,7 @@ from serials.models import Serial
 from serials.services import SerialService
 
 
-class MovieViewSet(viewsets.ModelViewSet):
+class MovieViewSet(viewsets.ReadOnlyModelViewSet):
     """Api фильмов"""
 
     queryset: QuerySet[Movie] = MovieService().get_movies()
@@ -28,7 +28,7 @@ class MovieViewSet(viewsets.ModelViewSet):
         return super().list(request, *args, **kwargs)
 
 
-class SerialViewSet(viewsets.ModelViewSet):
+class SerialViewSet(viewsets.ReadOnlyModelViewSet):
     """Api сериалов"""
 
     queryset: QuerySet[Serial] = SerialService().get_serials()

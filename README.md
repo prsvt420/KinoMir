@@ -14,8 +14,7 @@
 - Docker / Docker Compose
 - Git / GitHub
 - Redis
-
-[//]: # (- Celery)
+- Celery
 
 [//]: # (- CI/CD)
 
