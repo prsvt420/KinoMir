@@ -1,4 +1,4 @@
-from typing import Optional, Dict, List, Any
+from typing import Optional, Dict, Any
 
 from django.db.models import QuerySet
 from django.http import JsonResponse, HttpResponse, HttpRequest

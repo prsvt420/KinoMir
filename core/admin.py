@@ -19,7 +19,7 @@ class PersonAdmin(admin.ModelAdmin):
         'last_name',
     )
 
-    search_fields: Tuple= (
+    search_fields: Tuple = (
         'first_name',
         'last_name',
     )
