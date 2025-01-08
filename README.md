@@ -3,7 +3,7 @@
 ## Используемые технологии
 
 - Python 3.11
-- Mypy
+- Mypy / Flake8 / Black / Isort / Pre-commit
 - Django 5
 - Django REST Framework (DRF)
 - PostgreSQL

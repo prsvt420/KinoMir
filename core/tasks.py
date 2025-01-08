@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import Any, Dict
+from typing import Dict
 
 from celery import shared_task
 from django.core.mail import send_mail
@@ -12,9 +12,9 @@ from KinoMir import settings
 def send_feedback(data: Dict) -> None:
     """Отправляет обратную связь на почту"""
 
-    text: Any | None = data.get("text")
-    topic: Any | None = data.get("topic")
-    email: Any | None = data.get("email")
+    text: str = data.get("text", "")
+    topic: str = data.get("topic", "")
+    email: str = data.get("email", "")
 
     html_message: str = render_to_string(
         "core/template_feedback.html",

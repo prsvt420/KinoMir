@@ -1,5 +1,4 @@
-from django.contrib.postgres.search import (SearchQuery, SearchRank,
-                                            SearchVector)
+from django.contrib.postgres import search
 from django.db.models import QuerySet
 
 from core.models import Genre, Tag
@@ -27,14 +26,14 @@ class SerialService:
         Returns:
             QuerySet[Serial]: Список сериалов по поисковому запросу
         """
-        search_vector: SearchVector = SearchVector("title")
-        search_query: SearchQuery = SearchQuery(q)
+        search_vector: search.SearchVector = search.SearchVector("title")
+        search_query: search.SearchQuery = search.SearchQuery(q)
 
         return (
             self.get_serials()
             .annotate(
                 search=search_vector,
-                rank=SearchRank(search_vector, search_query, cover_density=True),
+                rank=search.SearchRank(search_vector, search_query, cover_density=True),
             )
             .filter(search=search_query)
             .order_by("-rank")

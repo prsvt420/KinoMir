@@ -159,7 +159,7 @@ footer {
 @media screen and (max-width: 900px) {
     * {
         --base-width: 740px;
-    }   
+    }
 }
 
 @media screen and (max-width: 750px) {
@@ -191,7 +191,7 @@ footer {
     * {
         --base-width: 400px;
     }
-    
+
 }
 
 @media screen and (max-width: 500px) {

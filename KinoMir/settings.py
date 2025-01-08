@@ -131,10 +131,10 @@ REST_FRAMEWORK: Dict = {
     "DEFAULT_FILTER_BACKENDS": ["django_filters.rest_framework.DjangoFilterBackend"]
 }
 
-CELERY_BROKER_URL: str = (
+CELERY_BROKER_URL: Optional[str] = (
     "redis://127.0.0.1:6379" if DEBUG else os.getenv("REDIS_LOCATION")
 )
-CELERY_RESULT_BACKEND: str = (
+CELERY_RESULT_BACKEND: Optional[str] = (
     "redis://127.0.0.1:6379" if DEBUG else os.getenv("REDIS_LOCATION")
 )
 CELERY_TIMEZONE: str = "Europe/Moscow"

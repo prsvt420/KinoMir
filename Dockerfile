@@ -18,4 +18,3 @@ COPY . .
 RUN pip install --upgrade pip && pip install poetry
 
 RUN poetry install
-

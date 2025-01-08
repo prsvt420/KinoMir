@@ -36,7 +36,7 @@
                 <div class="movie-detail-person-photo-container">
                     <img src="{{ participant.person.photo.url }}" alt="Фото {{ participant.person.first_name }} {{ participant.person.last_name }}">
                 </div>
-                
+
                 {% else %}
                 <div class="movie-detail-person-photo-container">
                     <img src="{% static 'img/anonim-photo.png' %}" alt="Актер без фото">
@@ -48,18 +48,18 @@
                 </div>
             </div>
             {% endfor %}
-        </div>  
+        </div>
     </div>
     {% endif %}
 
     <div class="movie-detail-detail">
         <h2>Детали</h2>
-        <p>Жанры: 
-            
+        <p>Жанры:
+
             {% for genre in movie.genres.all %}
                 <span class="movie-detail-genre">{{ genre.title }}</span>{% if not forloop.last %}, {% endif %}
             {% endfor %}
-            
+
         </p>
     </div>
 </section>
