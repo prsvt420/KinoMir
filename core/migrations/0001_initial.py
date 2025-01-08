@@ -7,54 +7,91 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Genre',
+            name="Genre",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=255, verbose_name='Название')),
-                ('slug', models.SlugField(max_length=255, unique=True, verbose_name='URL')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=255, verbose_name="Название")),
+                (
+                    "slug",
+                    models.SlugField(max_length=255, unique=True, verbose_name="URL"),
+                ),
             ],
             options={
-                'verbose_name': 'Жанр',
-                'verbose_name_plural': 'Жанры',
-                'db_table': 'genres',
-                'db_table_comment': 'Таблица содержит список жанров',
-                'ordering': ('id',),
+                "verbose_name": "Жанр",
+                "verbose_name_plural": "Жанры",
+                "db_table": "genres",
+                "db_table_comment": "Таблица содержит список жанров",
+                "ordering": ("id",),
             },
         ),
         migrations.CreateModel(
-            name='Person',
+            name="Person",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('first_name', models.CharField(max_length=255, verbose_name='Имя')),
-                ('last_name', models.CharField(max_length=255, verbose_name='Фамилия')),
-                ('photo', models.ImageField(blank=True, null=True, upload_to='film_participants/', verbose_name='Фото')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("first_name", models.CharField(max_length=255, verbose_name="Имя")),
+                ("last_name", models.CharField(max_length=255, verbose_name="Фамилия")),
+                (
+                    "photo",
+                    models.ImageField(
+                        blank=True,
+                        null=True,
+                        upload_to="film_participants/",
+                        verbose_name="Фото",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Человек',
-                'verbose_name_plural': 'Люди',
-                'db_table': 'persons',
-                'db_table_comment': 'Таблица содержит список людей',
-                'ordering': ('id',),
+                "verbose_name": "Человек",
+                "verbose_name_plural": "Люди",
+                "db_table": "persons",
+                "db_table_comment": "Таблица содержит список людей",
+                "ordering": ("id",),
             },
         ),
         migrations.CreateModel(
-            name='Tag',
+            name="Tag",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=255, verbose_name='Название')),
-                ('slug', models.SlugField(max_length=255, unique=True, verbose_name='URL')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=255, verbose_name="Название")),
+                (
+                    "slug",
+                    models.SlugField(max_length=255, unique=True, verbose_name="URL"),
+                ),
             ],
             options={
-                'verbose_name': 'Тег',
-                'verbose_name_plural': 'Теги',
-                'db_table': 'tags',
-                'db_table_comment': 'Таблица содержит список тегов',
-                'ordering': ('id',),
+                "verbose_name": "Тег",
+                "verbose_name_plural": "Теги",
+                "db_table": "tags",
+                "db_table_comment": "Таблица содержит список тегов",
+                "ordering": ("id",),
             },
         ),
     ]

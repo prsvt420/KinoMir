@@ -17,7 +17,7 @@ class MovieSerializer(serializers.ModelSerializer):
 
     class Meta:
         model: type = Movie
-        fields: str = '__all__'
+        fields: str = "__all__"
 
     @staticmethod
     def get_genres(obj: Movie) -> List[Genre]:
@@ -36,7 +36,7 @@ class SerialSerializer(serializers.ModelSerializer):
 
     class Meta:
         model: type = Serial
-        fields: str = '__all__'
+        fields: str = "__all__"
 
     @staticmethod
     def get_genres(obj: Serial) -> List[Genre]:

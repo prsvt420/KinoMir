@@ -4,14 +4,14 @@ from debug_toolbar.toolbar import debug_toolbar_urls
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import include, path
 
 urlpatterns: List = [
-    path('admin/', admin.site.urls),
-    path('', include('core.urls', namespace='core'), name='core'),
-    path('movies/', include('movies.urls', namespace='movies'), name='movies'),
-    path('serials/', include('serials.urls', namespace='serials'), name='serials'),
-    path('api/', include('api.urls', namespace='api'), name='api'),
+    path("admin/", admin.site.urls),
+    path("", include("core.urls", namespace="core"), name="core"),
+    path("movies/", include("movies.urls", namespace="movies"), name="movies"),
+    path("serials/", include("serials.urls", namespace="serials"), name="serials"),
+    path("api/", include("api.urls", namespace="api"), name="api"),
 ]
 
 if settings.DEBUG:

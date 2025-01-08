@@ -9,48 +9,115 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('core', '0001_initial'),
+        ("core", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Serial',
+            name="Serial",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=255, verbose_name='Название')),
-                ('description', models.TextField(verbose_name='Описание')),
-                ('poster', models.ImageField(help_text='Рекомендуемый размер 300x450', upload_to='serials/', verbose_name='Постер')),
-                ('year', models.PositiveIntegerField(verbose_name='Год')),
-                ('season_count', models.PositiveIntegerField(verbose_name='Количество сезонов')),
-                ('country', models.CharField(max_length=255, verbose_name='Страна')),
-                ('age_limit', models.PositiveIntegerField(verbose_name='Возрастное ограничение')),
-                ('slug', models.SlugField(max_length=255, unique=True, verbose_name='URL')),
-                ('genres', models.ManyToManyField(to='core.genre', verbose_name='Жанр')),
-                ('tags', models.ManyToManyField(blank=True, to='core.tag', verbose_name='Тег')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=255, verbose_name="Название")),
+                ("description", models.TextField(verbose_name="Описание")),
+                (
+                    "poster",
+                    models.ImageField(
+                        help_text="Рекомендуемый размер 300x450",
+                        upload_to="serials/",
+                        verbose_name="Постер",
+                    ),
+                ),
+                ("year", models.PositiveIntegerField(verbose_name="Год")),
+                (
+                    "season_count",
+                    models.PositiveIntegerField(verbose_name="Количество сезонов"),
+                ),
+                ("country", models.CharField(max_length=255, verbose_name="Страна")),
+                (
+                    "age_limit",
+                    models.PositiveIntegerField(verbose_name="Возрастное ограничение"),
+                ),
+                (
+                    "slug",
+                    models.SlugField(max_length=255, unique=True, verbose_name="URL"),
+                ),
+                (
+                    "genres",
+                    models.ManyToManyField(to="core.genre", verbose_name="Жанр"),
+                ),
+                (
+                    "tags",
+                    models.ManyToManyField(
+                        blank=True, to="core.tag", verbose_name="Тег"
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Сериал',
-                'verbose_name_plural': 'Сериалы',
-                'db_table': 'serials',
-                'db_table_comment': 'Таблица содержит список сериалов',
-                'ordering': ('id',),
+                "verbose_name": "Сериал",
+                "verbose_name_plural": "Сериалы",
+                "db_table": "serials",
+                "db_table_comment": "Таблица содержит список сериалов",
+                "ordering": ("id",),
             },
         ),
         migrations.CreateModel(
-            name='SerialParticipant',
+            name="SerialParticipant",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('role', models.CharField(choices=[('actor', 'Актёр'), ('director', 'Режиссёр'), ('producer', 'Продюсер'), ('screenwriter', 'Сценарист'), ('operator', 'Оператор')], max_length=50, verbose_name='Роль')),
-                ('person', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='core.person', verbose_name='Человек')),
-                ('serial', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='serials.serial', verbose_name='Сериал')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "role",
+                    models.CharField(
+                        choices=[
+                            ("actor", "Актёр"),
+                            ("director", "Режиссёр"),
+                            ("producer", "Продюсер"),
+                            ("screenwriter", "Сценарист"),
+                            ("operator", "Оператор"),
+                        ],
+                        max_length=50,
+                        verbose_name="Роль",
+                    ),
+                ),
+                (
+                    "person",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="core.person",
+                        verbose_name="Человек",
+                    ),
+                ),
+                (
+                    "serial",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to="serials.serial",
+                        verbose_name="Сериал",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Член сериала',
-                'verbose_name_plural': 'Члены сериала',
-                'db_table': 'serial_participants',
-                'db_table_comment': 'Таблица содержит список членов сериала',
-                'ordering': ('id',),
-                'unique_together': {('serial', 'person')},
+                "verbose_name": "Член сериала",
+                "verbose_name_plural": "Члены сериала",
+                "db_table": "serial_participants",
+                "db_table_comment": "Таблица содержит список членов сериала",
+                "ordering": ("id",),
+                "unique_together": {("serial", "person")},
             },
         ),
     ]

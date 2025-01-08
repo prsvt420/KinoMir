@@ -1,8 +1,9 @@
-from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank
+from django.contrib.postgres.search import (SearchQuery, SearchRank,
+                                            SearchVector)
 from django.db.models import QuerySet
 
 from core.models import Genre, Tag
-from movies.models import Movie, FilmParticipant
+from movies.models import FilmParticipant, Movie
 
 
 class MovieService:
@@ -17,7 +18,7 @@ class MovieService:
             List[Movie]: Список фильмов
         """
 
-        return Movie.objects.all().prefetch_related('genres').prefetch_related('tags')
+        return Movie.objects.all().prefetch_related("genres").prefetch_related("tags")
 
     def get_movies_by_search_query(self, q: str) -> QuerySet[Movie]:
         """
@@ -26,13 +27,18 @@ class MovieService:
         Returns:
             QuerySet[Movie]: Список фильмов по поисковому запросу
         """
-        search_vector: SearchVector = SearchVector('title')
+        search_vector: SearchVector = SearchVector("title")
         search_query: SearchQuery = SearchQuery(q)
 
-        return self.get_movies().annotate(
-            search=search_vector,
-            rank=SearchRank(search_vector, search_query, cover_density=True),
-        ).filter(search=search_query).order_by('-rank')
+        return (
+            self.get_movies()
+            .annotate(
+                search=search_vector,
+                rank=SearchRank(search_vector, search_query, cover_density=True),
+            )
+            .filter(search=search_query)
+            .order_by("-rank")
+        )
 
     @staticmethod
     def get_film_participants(movie: Movie) -> QuerySet[FilmParticipant]:
@@ -43,7 +49,7 @@ class MovieService:
             QuerySet[FilmParticipant]: Список участников фильма
         """
 
-        return FilmParticipant.objects.filter(movie=movie).select_related('person')
+        return FilmParticipant.objects.filter(movie=movie).select_related("person")
 
     @staticmethod
     def get_genres(movie: Movie) -> QuerySet[Genre]:

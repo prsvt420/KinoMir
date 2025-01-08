@@ -1,4 +1,5 @@
-from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank
+from django.contrib.postgres.search import (SearchQuery, SearchRank,
+                                            SearchVector)
 from django.db.models import QuerySet
 
 from core.models import Genre, Tag
@@ -17,7 +18,7 @@ class SerialService:
             List[Serial]: Список сериалов
         """
 
-        return Serial.objects.all().prefetch_related('genres').prefetch_related('tags')
+        return Serial.objects.all().prefetch_related("genres").prefetch_related("tags")
 
     def get_serials_by_search_query(self, q: str) -> QuerySet[Serial]:
         """
@@ -26,13 +27,18 @@ class SerialService:
         Returns:
             QuerySet[Serial]: Список сериалов по поисковому запросу
         """
-        search_vector: SearchVector = SearchVector('title')
+        search_vector: SearchVector = SearchVector("title")
         search_query: SearchQuery = SearchQuery(q)
 
-        return self.get_serials().annotate(
-            search=search_vector,
-            rank=SearchRank(search_vector, search_query, cover_density=True),
-        ).filter(search=search_query).order_by('-rank')
+        return (
+            self.get_serials()
+            .annotate(
+                search=search_vector,
+                rank=SearchRank(search_vector, search_query, cover_density=True),
+            )
+            .filter(search=search_query)
+            .order_by("-rank")
+        )
 
     @staticmethod
     def get_serial_participants(serial: Serial) -> QuerySet[SerialParticipant]:
@@ -43,7 +49,7 @@ class SerialService:
             QuerySet[SerialParticipant]: Список участников сериала
         """
 
-        return SerialParticipant.objects.filter(serial=serial).select_related('person')
+        return SerialParticipant.objects.filter(serial=serial).select_related("person")
 
     @staticmethod
     def get_genres(serial: Serial) -> QuerySet[Genre]:

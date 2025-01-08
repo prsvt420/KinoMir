@@ -1,27 +1,24 @@
-from typing import Tuple, Dict
+from typing import Dict, Tuple
 
 from django.contrib import admin
 
-from core.models import Person, Tag, Genre
+from core.models import Genre, Person, Tag
 
 
 @admin.register(Person)
 class PersonAdmin(admin.ModelAdmin):
     """Админка персон"""
 
-    fields: Tuple = (
-        ('first_name', 'last_name'),
-        'photo'
-    )
+    fields: Tuple = (("first_name", "last_name"), "photo")
 
     list_display: Tuple = (
-        'first_name',
-        'last_name',
+        "first_name",
+        "last_name",
     )
 
     search_fields: Tuple = (
-        'first_name',
-        'last_name',
+        "first_name",
+        "last_name",
     )
 
     list_per_page: int = 50
@@ -31,7 +28,7 @@ class PersonAdmin(admin.ModelAdmin):
 class TagAdmin(admin.ModelAdmin):
     """Админка тегов"""
 
-    list_display: Tuple = ('title',)
+    list_display: Tuple = ("title",)
     list_per_page: int = 50
 
 
@@ -39,5 +36,5 @@ class TagAdmin(admin.ModelAdmin):
 class GenreAdmin(admin.ModelAdmin):
     """Админка жанров"""
 
-    list_display: Tuple = ('title', 'slug')
+    list_display: Tuple = ("title", "slug")
     prepopulated_fields: Dict = {"slug": ("title",)}
