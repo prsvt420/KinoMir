@@ -7,7 +7,7 @@
 - Django 5
 - Django REST Framework (DRF)
 - PostgreSQL
-- HTML CSS JavaScript
+- HTML / CSS / JavaScript
 - JQuery
 - Gunicorn
 - Nginx
@@ -15,7 +15,3 @@
 - Git / GitHub
 - Redis
 - Celery
-
-[//]: # (- CI/CD)
-
-[//]: # (- GitLab)
