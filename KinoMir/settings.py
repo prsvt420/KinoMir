@@ -27,6 +27,7 @@ INSTALLED_APPS: List[str] = [
     "rest_framework",
     "django_filters",
     "drf_yasg",
+    "csp",
     "core",
     "movies",
     "serials",
@@ -42,6 +43,7 @@ MIDDLEWARE: List[str] = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "debug_toolbar.middleware.DebugToolbarMiddleware",
+    "csp.middleware.CSPMiddleware",
 ]
 
 ROOT_URLCONF: str = "KinoMir.urls"
@@ -138,3 +140,10 @@ CELERY_RESULT_BACKEND: Optional[str] = (
     "redis://127.0.0.1:6379" if DEBUG else os.getenv("REDIS_LOCATION")
 )
 CELERY_TIMEZONE: str = "Europe/Moscow"
+
+CSP_DEFAULT_SRC: List = ["'self'"]
+CSP_IMG_SRC: List = ["'self'", "data:", "https://cdn.redoc.ly"]
+CSP_SCRIPT_SRC: List = ["'self'", "'unsafe-inline'"]
+CSP_STYLE_SRC: List = ["'self'", "https://fonts.googleapis.com/", "'unsafe-inline'"]
+CSP_FONT_SRC: List = ["'self'", "https://fonts.gstatic.com"]
+CSP_WORKER_SRC: List = ["'self'", "blob:"]
