@@ -5,6 +5,7 @@ volumes:
   static_files:
   media_files:
   backend:
+  nginx:
 
 services:
   database:
@@ -37,11 +38,10 @@ services:
       - database
       - redis
       - celery
-    command: sh -c "poetry run python manage.py makemigrations &&
-                    poetry run python manage.py migrate &&
+    command: sh -c "make migrate &&
                     make loaddata &&
-                    poetry run python manage.py collectstatic --no-input &&
-                    poetry run gunicorn KinoMir.wsgi:application --bind 0.0.0.0:8000"
+                    make collectstatic &&
+                    make run-prod"
 
   celery:
     container_name: KinoMir-celery
@@ -60,9 +60,21 @@ services:
       context: ./nginx
     ports:
       - "80:80"
+      - "443:443"
     depends_on:
       - backend
     volumes:
       - static_files:/app/staticfiles
       - media_files:/app/media
+      - nginx:/etc/nginx
+      - ./nginx/certbot:/var/www/certbot
+      - /etc/letsencrypt:/etc/letsencrypt
     restart: always
+
+  certbot:
+    container_name: KinoMir-certbot
+    image: certbot/certbot
+    volumes:
+      - ./nginx/certbot:/var/www/certbot
+      - /etc/letsencrypt:/etc/letsencrypt
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
